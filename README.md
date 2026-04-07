@@ -130,3 +130,18 @@ Combining Wazuh with AI improves:
 - Train ML model on real datasets
 - Add dashboard visualization
 - Integrate with SIEM systems
+
+
+## Screenshots
+
+### Dashboard
+![Dashboard](images/dashboard.png)
+
+### Alerts
+![Alerts](images/alerts.png)
+
+### Rules
+![Rules](images/rules.png)
+
+### Terminal logs
+![Terminal](images/terminal.png)
