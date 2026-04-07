@@ -1,3 +1,11 @@
 venv/
+.venv/
 __pycache__/
 *.pyc
+.DS_Store
+.env
+ai-detection/*.csv
+ai-detection/*.json
+ai-detection/*.txt
+evidence/*.json
+evidence/*.log
