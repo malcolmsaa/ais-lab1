@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Startar AI detection pipeline..."
+
+python3 ai-detection/anomaly_detector.py evidence/baseline_alerts.json
+
+python3 ai-detection/alert_manager.py
+
+python3 ai-detection/response_playbook.py
+
+echo "Pipeline klar"
