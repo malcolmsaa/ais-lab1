@@ -131,6 +131,37 @@ Combining Wazuh with AI improves:
 - Add dashboard visualization
 - Integrate with SIEM systems
 
+## Analysis of alerts
+
+Most alerts were triggered by custom rules.
+
+Example:
+- File integrity monitoring detected changes in /etc/test-fim-vg
+- This generated a security alert in Wazuh
+
+This shows that the system correctly detects unauthorized file changes.
+
+## Rule-based vs AI-based detection
+
+Rule-based detection:
+- Detects known patterns
+- Example: file changes, login attempts
+
+AI-based detection:
+- Detects anomalies in behavior
+- Can identify unusual patterns not covered by rules
+
+In this lab, rule-based detection was used for precise alerts,
+while AI concepts were explored for anomaly detection.
+
+## Response to attack
+
+When an attack is detected:
+- Wazuh generates an alert
+- The alert appears in the dashboard
+- Logs are stored for analysis
+
+This allows fast detection and response to security incidents.
 
 ## Screenshots
 
