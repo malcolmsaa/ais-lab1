@@ -1,0 +1,9 @@
+services:
+  test-web:
+    image: nginx:alpine
+    ports:
+      - "8888:80"
+
+  test-python:
+    image: python:3.12-slim
+    command: sh -c "pip install scikit-learn >/dev/null 2>&1 && python -c \"from sklearn.ensemble import IsolationForest; print('ML container works')\""
