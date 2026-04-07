@@ -1,8 +1,5 @@
----
-
 # Rapport (för inlämning)
 
-```md
 # Lab 1 – AI-based Security Monitoring
 
 ## 1. Introduction
