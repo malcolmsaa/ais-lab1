@@ -1,0 +1,23 @@
+<group name="local,syslog,sshd,">
+
+  <rule id="100001" level="10">
+    <if_sid>5716</if_sid>
+    <match>Failed password</match>
+    <description>Upprepade misslyckade SSH-inloggningar, möjlig brute force</description>
+    <group>authentication_failed, brute_force,</group>
+  </rule>
+
+  <rule id="100002" level="12">
+    <if_sid>550</if_sid>
+    <field name="file">/etc/passwd</field>
+    <description>Kritisk filändring upptäckt i /etc/passwd</description>
+    <group>fim, critical_file,</group>
+  </rule>
+
+  <rule id="100003" level="8">
+    <if_sid>5715</if_sid>
+    <description>Lyckad SSH-inloggning från extern källa, kontrollera ursprung</description>
+    <group>authentication_success, suspicious_login,</group>
+  </rule>
+
+</group>
