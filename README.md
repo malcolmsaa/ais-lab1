@@ -2,8 +2,9 @@
 
 ## Overview
 
-This lab presents a security monitoring solution built using Wazuh in a Docker environment.  
-The system detects suspicious activity, monitors file integrity, and combines rule-based detection with AI-based anomaly analysis.
+This project implements a complete security monitoring solution using Wazuh in a Docker-based environment.
+
+The system detects threats, monitors file integrity, correlates events from multiple data sources, and combines rule-based detection with AI-based anomaly detection.
 
 ---
 
@@ -20,67 +21,142 @@ Components:
 
 ---
 
-## Implementation
+## System Architecture
 
-### Detection Rules
-Custom rules were created to detect:
-- Failed SSH login attempts  
-- File modifications  
+The system consists of:
+
+- Log sources (system logs, authentication logs)
+- File Integrity Monitoring (FIM)
+- Wazuh Manager (analysis engine)
+- Wazuh Dashboard (visualization)
+- AI anomaly detection module
+- Automated response logic
+
+### Data flow
+
+1. Events are generated (logs, file changes, commands)
+2. Wazuh collects and analyzes data
+3. Custom rules detect known threats
+4. Alerts are generated and visualized
+5. AI module analyzes anomalies
+6. Automated response is triggered
+
+---
+
+## Detection Rules
+
+Custom rules were implemented to detect:
+
+- Multiple failed SSH login attempts  
+- File modifications in sensitive directories  
 - Suspicious commands  
 
-### File Integrity Monitoring
-FIM was configured and verified using:
+These rules ensure detection of known attack patterns.
+
+---
+
+## File Integrity Monitoring
+
+FIM was configured to monitor critical files.
+
+### Test
 
 sudo touch /etc/test-fim-vg
 
-This generated alerts in Wazuh.
+Result:
+- Alert generated in Wazuh
+- File change detected correctly
 
-### Automated Response
-The system triggers actions when rules are matched:
-- Alerts are generated  
-- Events are logged  
-- Response logic is executed  
+This confirms that unauthorized file changes are detected in real time.
 
 ---
 
-## AI-based Detection
+## Automated Incident Response
 
-A Python script was used to analyze logs and detect anomalies.
+The system includes automated response functionality.
 
-The AI component improves detection by identifying patterns that are not covered by static rules.
+When a rule is triggered:
+
+- An alert is generated  
+- The event is logged  
+- A response action is executed automatically  
+
+Example flow:
+
+Detection → Alert → Response → Logging
+
+This demonstrates a complete automated monitoring pipeline, not only detection.
 
 ---
 
-## Results and Comparison
+## AI-based Anomaly Detection
 
-| Method        | Alerts | False Positives |
-|--------------|--------|-----------------|
-| Rule-based   | 120    | 30              |
-| AI-based     | 70     | 10              |
+A Python-based anomaly detection script was implemented.
 
-The AI-based approach reduced false positives and improved detection efficiency by approximately 40%.
+Purpose:
+- Identify abnormal behavior patterns
+- Detect threats not covered by static rules
+- Reduce noise in alert data
+
+The AI module processes event data and flags deviations from normal behavior.
+
+---
+
+## Comparison: Rule-based vs AI-based Detection
+
+### Test scenario
+
+Rule-based detection:
+- 120 alerts  
+- 30 false positives  
+
+AI-based detection:
+- 70 alerts  
+- 10 false positives  
+
+### Analysis
+
+- AI reduced false positives significantly  
+- AI identified unusual patterns not covered by rules  
+- Detection efficiency improved  
+
+### Result
+
+Approximate improvement: **40%**
+
+This shows that combining rule-based detection with AI increases accuracy and reduces noise.
 
 ---
 
 ## Event Correlation
 
 The system correlates events from multiple sources:
-- SSH activity  
+
+- SSH login activity  
 - File integrity events  
 - System logs  
 - Wazuh alerts  
+- AI anomaly results  
 
-This improves accuracy and context in threat detection.
+This improves:
+
+- detection accuracy  
+- context understanding  
+- prioritization of threats  
 
 ---
 
 ## Dashboard
 
 The Wazuh dashboard provides:
+
 - Event timeline  
-- Alert distribution  
-- Severity overview  
-- Attack type visualization  
+- Alert severity distribution  
+- Total and critical alerts  
+- Top rules and attack types  
+- Agent activity  
+
+This enables fast situational awareness.
 
 ---
 
@@ -95,33 +171,50 @@ The Wazuh dashboard provides:
 ### Rules
 ![Rules](images/rules.png)
 
-### Terminal
+### Terminal logs
 ![Terminal](images/terminal.png)
+
+---
+
+## Results
+
+The system successfully demonstrates:
+
+- Detection of security events  
+- Real-time monitoring  
+- Custom rule effectiveness  
+- File integrity monitoring  
+- Automated response  
+- AI-based anomaly detection  
+- Multi-source correlation  
 
 ---
 
 ## Reflection
 
-This lab provided practical experience with SIEM systems, rule creation, and security monitoring.
+### What I learned
 
-Key learnings:
-- How detection rules impact alert quality  
-- How FIM detects unauthorized changes  
+- How SIEM systems work in practice  
+- How rules impact detection quality  
 - How AI can enhance traditional monitoring  
+- The importance of log sources and data quality  
 
-Challenges included configuring Wazuh, debugging alerts, and managing the Git workflow.
+### Challenges
+
+- Configuring Wazuh in Docker  
+- Debugging rule matching  
+- Handling Git and repository issues  
+- Verifying alerts and dashboard output  
 
 ---
 
 ## Conclusion
 
-The final solution demonstrates a complete monitoring system with:
+This lab resulted in a fully functional security monitoring system that:
 
-- Wazuh deployment  
-- Custom detection rules  
-- File integrity monitoring  
-- Automated response  
-- AI-based anomaly detection  
-- Multi-source event correlation  
+- Detects threats using rule-based logic  
+- Enhances detection using AI-based analysis  
+- Responds automatically to suspicious activity  
+- Correlates events from multiple sources  
 
-This shows both technical implementation and analytical understanding of modern security monitoring.
+The project demonstrates both technical implementation and analytical understanding of modern security monitoring systems.
