@@ -120,6 +120,20 @@ AI-based detection:
 - AI identified unusual patterns not covered by rules  
 - Detection efficiency improved  
 
+## Comparison: AI vs Rule-based Detection
+
+The AI-based detection identified anomalies earlier compared to rule-based detection.
+
+While rule-based detection relies on predefined patterns, the AI model was able to detect unusual behavior that did not match existing rules.
+
+This resulted in faster detection of suspicious activity and improved overall monitoring capability.
+
+## Measurable Improvement
+
+The AI component improved detection efficiency by identifying anomalies that were not triggered by existing rules.
+
+This demonstrates how AI can complement traditional SIEM approaches by enhancing detection coverage and response speed.
+
 ### Result
 
 Approximate improvement: **40%**
