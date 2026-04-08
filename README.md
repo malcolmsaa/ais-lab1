@@ -100,6 +100,26 @@ Purpose:
 
 The AI module processes event data and flags deviations from normal behavior.
 
+## AI vs Rule-Based Detection
+
+Rule-based detection identifies known threats based on predefined rules.
+
+The AI-based approach analyzes behavior patterns and detects anomalies that do not match known rules.
+
+In testing, the AI script was able to identify unusual activity earlier than rule-based detection in certain scenarios.
+
+This demonstrates how combining both approaches improves overall detection capability.
+
+## Example Detection
+
+A simulated anomaly was created by generating unusual log patterns.
+
+Rule-based detection did not trigger an alert immediately.
+
+The AI model flagged the anomaly based on deviation from normal behavior.
+
+This shows improved detection capability in unknown scenarios.
+
 ---
 
 ## Comparison: Rule-based vs AI-based Detection
